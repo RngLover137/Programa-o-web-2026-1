@@ -1,0 +1,87 @@
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-dark: #085041;
+      --text: #2C2C2A;
+      --muted: #5F5E5A;
+      --border: #D3D1C7;
+      --bg: #F7F6F2;
+      --danger: #E24B4A;
+      --danger-bg: #FCEBEB;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .container { width: 100%; max-width: 400px; }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .campo { margin-bottom: 1rem; }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    select:focus, input[type="number"]:focus { border-color: var(--green); }
+    select.erro, input[type="number"].erro { border-color: var(--danger); }
+
+    .msg-erro {
+      font-size: 0.8rem;
+      color: var(--danger);
+      margin-top: 4px;
+      display: none;
+    }
+    .msg-erro.visivel { display: block; }
+
+    .resultado-box {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .resultado-box.preenchido { border-color: var(--green); background: var(--green-light); }
+    .resultado-box.com-erro   { border-color: var(--danger); background: var(--danger-bg); }
+
+    .resultado-label { font-size: 0.85rem; color: var(--muted); }
+    .resultado-box.preenchido .resultado-label { color: var(--green-dark); }
+    .resultado-box.com-erro   .resultado-label { color: var(--danger); }
+
+    .resultado-valor { font-size: 1.4rem; font-weight: 600; color: var(--muted); }
+    .resultado-box.preenchido .resultado-valor { color: var(--green-dark); }
+    .resultado-box.com-erro   .resultado-valor { font-size: 0.95rem; color: var(--danger); }
